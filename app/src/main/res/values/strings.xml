@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps">Google Maps</string>
+    <string name="google_places">Google Places</string>
+    <string name="email">Email</string>
+    <string name="about">About</string>
+    <string name="api_key">AIzaSyBJddxmgPsP4mvRZ1ewJuIqEXvTdVvgyE4</string>
+    <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
+    <string name="dropped_pin">Dropped Pin</string>
+    <string name="poi">poi</string>
+    <string name="zoom">15f</string>
+    <string name="invalid">Invalid LatLng</string>
+    <string name="noaddress">No address found</string>
+    <string name="problem">Problem with the geolocation service</string>
+</resources>
