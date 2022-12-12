@@ -28,6 +28,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
+        <activity android:name=".AboutActivity" android:exported="false" />
+        <activity android:name=".EmailActivity" android:exported="false" />
+        <activity android:name=".PlacesActivity" android:exported="false"/>
+
         <activity
             android:name=".MapsActivity"
             android:exported="true"

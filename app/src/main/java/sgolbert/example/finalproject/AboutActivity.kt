@@ -6,16 +6,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class AboutActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
     }
 
-    fun onButtonClick(view: View){
-        when(view.id){
-            R.id.back_button->{
-                onBackPressed()
-            }
-        }
+    fun onButtonClose(view: View){
+        finish()
     }
 }
