@@ -9,6 +9,7 @@ import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -59,6 +60,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     //Array to pass location strings
     private lateinit var  fullAddresses: ArrayList<String>
 
+    //Variable to pass user location to email
+    private lateinit var myAddress: String
+
     private var valuesLoaded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,7 +87,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mLikelyPlaceAddresses = ArrayList<String>(5)
         mLikelyPlaceLatLngs = ArrayList<LatLng>(5)
 
+        //Used by Places Screen
         fullAddresses = ArrayList<String>(5)
+
+        //Used by Email Screen
+        myAddress = ""
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -182,6 +191,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     .snippet(getAddress(currLocation))
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currLocation, 15f))
+                myAddress = String.format("My location: " + getAddress(currLocation) + ", " + currLocation.toString())
             }
         }
     }
@@ -286,6 +296,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         R.id.email_button ->{
             //Go to email page
+            if(valuesLoaded){
+                val intent = Intent(this,EmailActivity::class.java).apply {
+                    putExtra("myAddress",myAddress)
+                }
+                startActivity(intent)
+            }
             true
         }
         R.id.about_button ->{

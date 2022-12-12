@@ -20,7 +20,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="100dp"
         android:onClick="onButtonClose"
         android:text="@string/back_button"
         app:layout_constraintBottom_toBottomOf="parent"
