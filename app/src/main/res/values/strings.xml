@@ -13,4 +13,6 @@
     <string name="invalid">Invalid LatLng</string>
     <string name="noaddress">No address found</string>
     <string name="problem">Problem with the geolocation service</string>
+    <string name="name">Sergio Mauwad Golbert</string>
+    <string name="back_button">Back</string>
 </resources>

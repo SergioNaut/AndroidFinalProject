@@ -2,6 +2,7 @@ package sgolbert.example.finalproject
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
@@ -9,6 +10,8 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.common.api.ApiException
@@ -240,6 +243,38 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.e("Places", "Place not found: " + exception.statusCode)
                     }
                 }
-            })
+            }
+        )
     }
+
+    //Create a Menu Button
+    override fun onCreateOptionsMenu(menu: Menu?):Boolean{
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_options,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when(item.itemId){
+        //Change page based on user's selection
+        R.id.maps_button ->{
+            //Go back to map screen
+            true
+        }
+        R.id.places_button ->{
+            //Go to recycler page
+            true
+        }
+        R.id.email_button ->{
+            //Go to email page
+            true
+        }
+        R.id.about_button ->{
+            //Go to about page
+            val intent = Intent(this,AboutActivity::class.java)
+            startActivity(intent)
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
+    }
+
 }
