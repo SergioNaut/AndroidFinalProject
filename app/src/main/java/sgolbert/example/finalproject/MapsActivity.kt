@@ -56,7 +56,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mLikelyPlaceAddresses: ArrayList<String>
     private lateinit var mLikelyPlaceLatLngs: ArrayList<LatLng>
 
+    //Array to pass location strings
+    private lateinit var  fullAddresses: ArrayList<String>
 
+    private var valuesLoaded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +82,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mLikelyPlaceNames = ArrayList<String>(5)
         mLikelyPlaceAddresses = ArrayList<String>(5)
         mLikelyPlaceLatLngs = ArrayList<LatLng>(5)
+
+        fullAddresses = ArrayList<String>(5)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -213,6 +218,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         Log.i("Places",currPlace.name)
                         mLikelyPlaceAddresses.add(currPlace.address)
                         mLikelyPlaceLatLngs.add(currPlace.latLng)
+
+                        //Add full address to array
+                        fullAddresses.add(String.format(currPlace.name + ", "+ currPlace.address))
                         val currLatLng =
                             if (mLikelyPlaceLatLngs[i] == null) "" else mLikelyPlaceLatLngs[i].toString()
                         Log.i(
@@ -235,6 +243,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     println(mLikelyPlaceAddresses)
                     println("Aaaaaaaaaa")
                     println(mLikelyPlaceLatLngs)
+                    println("BBBBBBBB")
+                    println(fullAddresses)
+
+                    valuesLoaded = true
 
 
                 } else {
@@ -261,7 +273,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             true
         }
         R.id.places_button ->{
-            //Go to recycler page
+            //Only change screens if place have been loaded
+            if(valuesLoaded){
+                //Go to recycler page
+                val intent = Intent(this,PlacesActivity::class.java).apply{
+                    putExtra("key1",fullAddresses)
+                }
+                startActivity(intent)
+            }
+
             true
         }
         R.id.email_button ->{
