@@ -16,4 +16,8 @@
     <string name="name">Sergio Mauwad Golbert</string>
     <string name="back_button">Back</string>
     <string name="send_button">Send</string>
+    <string name="app_description">This app connects to the Google Maps API and shows the user a map fragment.
+        After waiting a little, the app gets the users current location and places close to it.
+    The app has buttons that connect to page with a Recycle view that shows the current places, a page
+    where you can set an email and click the button Send to set your current coordinates as the body of an email.</string>
 </resources>

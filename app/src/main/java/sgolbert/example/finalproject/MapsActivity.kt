@@ -246,14 +246,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         }
                     }
 
-                    // Populate and refresh the RecyclerView
-                    println("Aaaaaaaaaa")
                     println(mLikelyPlaceNames)
-                    println("Aaaaaaaaaa")
                     println(mLikelyPlaceAddresses)
-                    println("Aaaaaaaaaa")
                     println(mLikelyPlaceLatLngs)
-                    println("BBBBBBBB")
                     println(fullAddresses)
 
                     valuesLoaded = true
@@ -280,6 +275,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //Change page based on user's selection
         R.id.maps_button ->{
             //Go back to map screen
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
             true
         }
         R.id.places_button ->{
