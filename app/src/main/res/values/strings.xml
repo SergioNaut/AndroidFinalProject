@@ -5,7 +5,7 @@
     <string name="google_places">Google Places</string>
     <string name="email">Email</string>
     <string name="about">About</string>
-    <string name="api_key">AIzaSyBJddxmgPsP4mvRZ1ewJuIqEXvTdVvgyE4</string>
+    <string name="api_key">blablabla</string>
     <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
     <string name="dropped_pin">Dropped Pin</string>
     <string name="poi">poi</string>
